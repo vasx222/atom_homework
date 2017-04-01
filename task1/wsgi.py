@@ -53,5 +53,4 @@ class WSGIApplication:
 from wsgiref.simple_server import make_server
 
 http_server = make_server('127.0.0.1', 12345, WSGIApplication)
-while True:
-    http_server.handle_request()
+http_server.handle_request()

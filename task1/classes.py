@@ -42,15 +42,9 @@ class Roadmap:
     today = property()
     @today.getter
     def today(self):
-        ls = []
-        for task in self.tasks:
-            if task.estimate == datetime.date.today():
-                ls.append(task)
-        return ls
+        return [task for task in self.tasks
+                if task.estimate == datetime.date.today()]
 
-    def filter(self, state = ""):
-        ls = []
-        for task in self.tasks:
-            if task.state == state:
-                ls.append(task)
-        return ls
+    def filter(self, state=""):
+        return [task for task in self.tasks
+                if task.state == state]
